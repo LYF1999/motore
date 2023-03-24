@@ -128,7 +128,7 @@ where
 {
     type Service = L::Service;
 
-    fn layer(self, inner: S) -> Self::Service {
+    fn layer(&self, inner: S) -> Self::Service {
         self.layer.layer(inner)
     }
 }

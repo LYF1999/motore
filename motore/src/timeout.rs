@@ -68,7 +68,7 @@ impl TimeoutLayer {
 impl<S> Layer<S> for TimeoutLayer {
     type Service = Timeout<S>;
 
-    fn layer(self, inner: S) -> Self::Service {
+    fn layer(&self, inner: S) -> Self::Service {
         Timeout {
             inner,
             duration: self.duration,

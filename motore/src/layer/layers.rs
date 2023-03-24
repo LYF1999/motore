@@ -31,7 +31,7 @@ impl<L> Layers<L> {
 impl<M, L: Layer<M>> Layer<M> for Layers<L> {
     type Service = L::Service;
 
-    fn layer(self, inner: M) -> Self::Service {
+    fn layer(&self, inner: M) -> Self::Service {
         self.0.layer(inner)
     }
 }

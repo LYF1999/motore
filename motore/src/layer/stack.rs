@@ -23,7 +23,7 @@ where
 {
     type Service = Outer::Service;
 
-    fn layer(self, service: S) -> Self::Service {
+    fn layer(&self, service: S) -> Self::Service {
         let inner = self.inner.layer(service);
 
         self.outer.layer(inner)

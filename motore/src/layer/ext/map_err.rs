@@ -13,10 +13,10 @@ impl<F> MapErrLayer<F> {
 impl<S, F: Clone> Layer<S> for MapErrLayer<F> {
     type Service = MapErr<S, F>;
 
-    fn layer(self, svc: S) -> Self::Service {
+    fn layer(&self, svc: S) -> Self::Service {
         MapErr {
             inner: svc,
-            f: self.f,
+            f: self.f.clone(),
         }
     }
 }

@@ -64,5 +64,5 @@ pub trait Layer<S> {
 
     /// Wrap the given service with the middleware, returning a new service
     /// that has been decorated with the middleware. Consumes self.
-    fn layer(self, inner: S) -> Self::Service;
+    fn layer(&self, inner: S) -> Self::Service;
 }

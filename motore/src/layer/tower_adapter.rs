@@ -71,11 +71,11 @@ pub struct MotoreAdapterLayer<F> {
     f: F,
 }
 
-impl<S, F> Layer<S> for MotoreAdapterLayer<F> {
+impl<S, F: Clone> Layer<S> for MotoreAdapterLayer<F> {
     type Service = Motore<S, F>;
 
-    fn layer(self, inner: S) -> Self::Service {
-        Motore::new(inner, self.f)
+    fn layer(&self, inner: S) -> Self::Service {
+        Motore::new(inner, self.f.clone())
     }
 }
 

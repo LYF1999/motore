@@ -20,7 +20,7 @@ where
 {
     type Service = Either<A::Service, B::Service>;
 
-    fn layer(self, inner: S) -> Self::Service {
+    fn layer(&self, inner: S) -> Self::Service {
         match self {
             Either::A(layer) => Either::A(layer.layer(inner)),
             Either::B(layer) => Either::B(layer.layer(inner)),

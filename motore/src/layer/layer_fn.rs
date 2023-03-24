@@ -87,7 +87,7 @@ where
 {
     type Service = Out;
 
-    fn layer(self, inner: S) -> Self::Service {
+    fn layer(&self, inner: S) -> Self::Service {
         (self.f)(inner)
     }
 }

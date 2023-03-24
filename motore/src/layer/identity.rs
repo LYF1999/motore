@@ -22,7 +22,7 @@ impl Identity {
 impl<S> Layer<S> for Identity {
     type Service = S;
 
-    fn layer(self, inner: S) -> Self::Service {
+    fn layer(&self, inner: S) -> Self::Service {
         inner
     }
 }
